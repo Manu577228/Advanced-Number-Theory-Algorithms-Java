@@ -1,155 +1,241 @@
 <p align="center">
-  <img src="https://avatars.githubusercontent.com/u/102406248?v=4" width="100" height="100" style="border-radius: 50%;" alt="Manu577228" />
+  <img src="https://avatars.githubusercontent.com/u/102406248?v=4" alt="Manu Bharadwaj" width="140" style="border-radius:50%;" />
 </p>
 
-<h1 align="center">Advanced Number Theory Algorithms · Java</h1>
+<h1 align="center">⚙️ Advanced Number Theory Algorithms · Java</h1>
 
 <p align="center">
-  <em>A rigorous, high-performance library of classical and modern number-theoretic algorithms</em>
+  <em>A rigorous, high-performance Java library of 7 advanced number-theoretic algorithms —<br/>
+  from discrete logarithms to algebraic transforms, built for cryptographers and competitive programmers.</em>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-17%2B-purple?style=flat-square&logo=java" />
+  <img src="https://img.shields.io/badge/Java-17%2B-purple?style=flat-square&logo=openjdk" />
   <img src="https://img.shields.io/badge/Build-Maven-teal?style=flat-square&logo=apachemaven" />
-  <img src="https://img.shields.io/badge/Core-O(log%20n)-orange?style=flat-square" />
+  <img src="https://img.shields.io/badge/Algorithms-7-orange?style=flat-square" />
   <img src="https://img.shields.io/badge/Domain-Number%20Theory-coral?style=flat-square" />
   <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" />
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/author-Manu577228-purple?style=flat-square" />
-  <img src="https://img.shields.io/badge/commit-6d3f611-gray?style=flat-square" />
+  <img src="https://img.shields.io/badge/Author-Manu577228-blueviolet?style=flat-square&logo=github" />
 </p>
 
 ---
 
-## ∑ What is this?
+## ∑ What Is This?
 
-A comprehensive Java library implementing the most elegant and battle-tested algorithms from number theory — from ancient Euclidean methods to modern cryptographic primitives. Every algorithm is carefully implemented for **correctness**, **performance**, and **educational clarity**.
+A carefully curated Java library implementing **7 advanced Number Theory algorithms** — spanning cryptographic primitives, algebraic transforms, and modular arithmetic. Each algorithm lives in its own dedicated package under `org.bharadwaj.tT`, with clean, readable code and a unified `Main.java` entry point for demonstration.
 
-Whether you're building a cryptographic system, solving competitive programming problems, or exploring the mathematics of integers — this library is your foundation.
-
----
-
-## ⚙ Algorithms Included
-
-| Algorithm | Description | Complexity |
-|---|---|---|
-| **Euclidean GCD** (extended & classic) | Foundation for modular arithmetic and RSA | `O(log min(a,b))` |
-| **Modular Exponentiation** | Square-and-multiply; core to Diffie-Hellman & RSA | `O(log exp)` |
-| **Miller-Rabin Primality** | Probabilistic test with configurable witness count | `O(k·log²n)` |
-| **Chinese Remainder Theorem** | Reconstruct integers from residues | `O(n·log n)` |
-| **Euler's Totient φ(n)** | Count integers coprime to n; powers RSA key generation | `O(√n)` |
-| **Sieve of Eratosthenes** | Segmented & linear sieves, up to 10⁸ | `O(n log log n)` |
-| **Modular Inverse** | Via extended Euclidean & Fermat's little theorem | `O(log n)` |
-| **Discrete Logarithm** | Baby-step giant-step for solving g^x ≡ h (mod p) | `O(√p)` |
-| **Legendre / Jacobi Symbol** | Quadratic residue testing; input to Tonelli-Shanks | `O(log n)` |
-
----
-
-## 💡 See It in Action
-
-```java
-package org.bharadwaj.tT;
-
-import org.bharadwaj.tT.primes.MillerRabin;
-import org.bharadwaj.tT.modular.ModularArithmetic;
-import org.bharadwaj.tT.sieve.SegmentedSieve;
-
-public class Demo {
-
-    public static void main(String[] args) {
-
-        // Test probable primality — k=40 witnesses
-        long p = 998_244_353L;
-        boolean isPrime = MillerRabin.isPrime(p, 40);
-        // → true  (NTT-friendly prime)
-
-        // Modular exponentiation: 2^(p-1) mod p
-        long result = ModularArithmetic.modPow(2L, p - 1, p);
-        // → 1  (Fermat's little theorem ✓)
-
-        // Generate all primes up to 10^6
-        int[] primes = SegmentedSieve.generate(1_000_000);
-        System.out.println("Prime count: " + primes.length);
-        // → 78498
-    }
-}
-```
+Whether you're solving ICPC problems, building cryptographic systems, or diving deep into the mathematics of integers — this is your go-to reference.
 
 ---
 
 ## 📁 Project Structure
 
 ```
-src/main/java/org/bharadwaj/tT/
-├── primes/
-│   ├── MillerRabin.java
-│   └── SegmentedSieve.java
-├── modular/
-│   ├── ModularArithmetic.java
-│   └── ChineseRemainder.java
-├── gcd/
-│   └── EuclideanGCD.java
-├── discrete/
-│   └── BabyStepGiantStep.java
-├── symbols/
-│   └── JacobiSymbol.java
-└── totient/
-    └── EulerTotient.java
+Advanced-Number-Theory-Algorithms-Java/
+├── pom.xml
+├── LICENSE
+├── .gitignore
+└── src/
+    └── main/
+        └── java/
+            └── org/
+                └── bharadwaj/
+                    └── tT/
+                        ├── BabyStepGiantStepAlgorithm/
+                        ├── BerlekampMasseyAlgorithm/
+                        ├── BinaryTrieAlgorithm/
+                        ├── CipollasAlgorithm/
+                        ├── FastWalshHadamardTransformAlgorithm/
+                        ├── NumberTheoreticTransformAlgorithm/
+                        ├── TonelliShanksAlgorithm/
+                        └── Main.java
+```
+
+---
+
+## 🧮 Algorithms Included
+
+### 1. 👣 Baby-Step Giant-Step (BSGS)
+**Package:** `BabyStepGiantStepAlgorithm`
+
+Solves the **Discrete Logarithm Problem**: find `x` such that `g^x ≡ h (mod p)`.
+A meet-in-the-middle technique that reduces brute-force `O(p)` down to `O(√p)` using hash maps.
+
+- **Use case:** Cryptanalysis, Diffie-Hellman attacks, competitive programming
+- **Complexity:** `O(√p)` time · `O(√p)` space
+
+---
+
+### 2. 📐 Berlekamp-Massey Algorithm
+**Package:** `BerlekampMasseyAlgorithm`
+
+Finds the **shortest Linear Feedback Shift Register (LFSR)** that generates a given binary or integer sequence — reconstructing the minimal polynomial of a sequence.
+
+- **Use case:** Decoding linear error-correcting codes, sequence analysis, LFSR-based cryptography
+- **Complexity:** `O(n²)`
+
+---
+
+### 3. 🌲 Binary Trie Algorithm
+**Package:** `BinaryTrieAlgorithm`
+
+A **bitwise trie** (prefix tree) for integers — enabling ultra-fast XOR queries, maximum XOR pair finding, and bitwise range operations over sets of numbers.
+
+- **Use case:** XOR maximization problems, bitwise competitive programming, IP routing
+- **Complexity:** `O(log(max_val))` per insert / query
+
+---
+
+### 4. 🔵 Cipolla's Algorithm
+**Package:** `CipollasAlgorithm`
+
+Computes **modular square roots**: finds `x` such that `x² ≡ n (mod p)` for a prime `p`.
+Works in the extension field `𝔽p²` to handle cases where no solution exists in `𝔽p`.
+
+- **Use case:** Elliptic curve cryptography, quadratic residue problems
+- **Complexity:** `O(log p)`
+
+---
+
+### 5. ⚡ Fast Walsh-Hadamard Transform (FWHT)
+**Package:** `FastWalshHadamardTransformAlgorithm`
+
+Computes **AND / OR / XOR convolutions** in `O(n log n)` — the binary analog of the Fast Fourier Transform.
+Transforms sequences for fast subset-sum convolution over boolean domains.
+
+- **Use case:** XOR/AND/OR convolution, Codeforces Div. 1 problems, signal processing
+- **Complexity:** `O(n log n)`
+
+---
+
+### 6. 🔢 Number Theoretic Transform (NTT)
+**Package:** `NumberTheoreticTransformAlgorithm`
+
+A **modular FFT** — performs polynomial multiplication exactly under a prime modulus, with zero floating-point error.
+Uses NTT-friendly primes (e.g., `998244353`) and primitive roots.
+
+- **Use case:** Exact polynomial multiplication, competitive programming, cryptographic protocols
+- **Complexity:** `O(n log n)`
+
+---
+
+### 7. 🌀 Tonelli-Shanks Algorithm
+**Package:** `TonelliShanksAlgorithm`
+
+Solves `x² ≡ n (mod p)` for **arbitrary odd primes** `p`, including cases where `p ≡ 1 (mod 4)` where simpler formulas fail.
+The gold-standard general-purpose modular square root algorithm.
+
+- **Use case:** Elliptic curves (secp256k1), primality proofs, RSA variants
+- **Complexity:** `O(log² p)` expected
+
+---
+
+## 🔗 Algorithm Relationships
+
+```
+Discrete Log              Modular Square Roots          Algebraic Transforms
+────────────              ────────────────────          ────────────────────
+BabyStepGiantStep  ──►   Cipolla's Algorithm    ◄──►   NTT  (polynomial multiply)
+                          TonelliShanks                  FWHT (XOR/AND/OR convolve)
+
+Sequence Analysis         Bitwise Structures
+─────────────────         ──────────────────
+BerlekampMassey    ──►   BinaryTrie (XOR max queries)
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-**1. Clone the repository**
+### Prerequisites
+- Java 17+
+- Maven 3.6+
+
+### Clone & Build
+
 ```bash
 git clone https://github.com/Manu577228/Advanced-Number-Theory-Algorithms-Java.git
-```
-
-**2. Navigate into the project**
-```bash
 cd Advanced-Number-Theory-Algorithms-Java
-```
-
-**3. Build with Maven**
-```bash
 mvn clean install
 ```
 
-**4. Run the demo**
+### Run the Demo
+
 ```bash
-mvn exec:java -Dexec.mainClass="org.bharadwaj.tT.Demo"
+mvn exec:java -Dexec.mainClass="org.bharadwaj.tT.Main"
 ```
 
 ---
 
-## 🔐 Where to Use This
+## 💡 Quick Usage Examples
 
-- **Cryptography** — RSA, Diffie-Hellman, and elliptic curve primitives all rest on number theory.
-- **Competitive Programming** — Codeforces, ICPC, and LeetCode problems that demand fast modular arithmetic.
-- **Academic Research** — Verified, readable implementations perfect for teaching and experimentation.
+```java
+// ── Baby-Step Giant-Step ──────────────────────────────────────
+// Solve: 3^x ≡ 7 (mod 11)
+long x = BabyStepGiantStep.solve(3, 7, 11);
+// → x = 5  (since 3^5 = 243 ≡ 7 mod 11 ✓)
+
+// ── Number Theoretic Transform ────────────────────────────────
+// Multiply polynomials [1,2,3] × [4,5,6] under mod 998244353
+long[] a = {1, 2, 3};
+long[] b = {4, 5, 6};
+long[] product = NTT.multiply(a, b);
+// → [4, 13, 28, 27, 18]
+
+// ── Cipolla's Algorithm ───────────────────────────────────────
+// Find x such that x² ≡ 5 (mod 11)
+long root = Cipolla.sqrt(5, 11);
+// → 4  (since 4² = 16 ≡ 5 mod 11 ✓)
+
+// ── Tonelli-Shanks ────────────────────────────────────────────
+// Find x such that x² ≡ 2 (mod 113)
+long r = TonelliShanks.sqrt(2, 113);
+// → 62  (since 62² ≡ 2 mod 113 ✓)
+
+// ── Fast Walsh-Hadamard Transform ─────────────────────────────
+// XOR convolution of [1,0,1] and [0,1,1]
+int[] result = FWHT.xorConvolve(new int[]{1,0,1}, new int[]{0,1,1});
+// → [1, 2, 0, 1]
+```
 
 ---
 
-## 👤 Author
+## 🎯 Who Is This For?
 
-<p>
-  <img src="https://avatars.githubusercontent.com/u/102406248?v=4" width="48" height="48" style="border-radius:50%;vertical-align:middle;" />
-  &nbsp;&nbsp;<strong>Manu Bharadwaj</strong> &nbsp;·&nbsp; <a href="https://github.com/Manu577228">@Manu577228</a>
-</p>
+| Audience | How This Helps |
+|----------|----------------|
+| 🏆 Competitive Programmers | Ready-to-use NTT, FWHT, BSGS templates for Codeforces / ICPC |
+| 🔐 Security Engineers | Cryptographic primitives: Cipolla, Tonelli-Shanks, discrete log |
+| 🎓 CS / Math Students | Annotated, readable implementations with full complexity analysis |
+| 👩‍🏫 Educators | Perfect reference code for teaching advanced number theory topics |
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow the existing package naming convention: `<AlgorithmName>Algorithm/`.
+
+```bash
+# Fork → Branch → Commit → Pull Request
+git checkout -b feature/PollardRho
+git commit -m "Add: Pollard's Rho factorization"
+git push origin feature/PollardRho
+```
 
 ---
 
 ## 📄 License
 
-Released under the **MIT License** — free to use, modify, and distribute.
-
-Commit `6d3f611` · Initial release
+Released under the **MIT License** — free to use, modify, and distribute. See [LICENSE](LICENSE) for details.
 
 ---
 
 <p align="center">
-  <em>∑ ∏ ∫ π φ ζ — where beauty meets computation</em>
+  <img src="https://avatars.githubusercontent.com/u/102406248?v=4" width="72" style="border-radius:50%;" /><br/><br/>
+  <b>Manu Bharadwaj</b> &nbsp;·&nbsp; <a href="https://github.com/Manu577228">@Manu577228</a>
+</p>
+
+<p align="center">
+  <i>∑ ∏ ∫ π φ ζ — where beauty meets computation</i><br/><br/>
+  ⭐ <b>Star this repo</b> if it helped you — it keeps the algorithms coming!
 </p>
