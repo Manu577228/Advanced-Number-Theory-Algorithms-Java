@@ -5,14 +5,14 @@
 <h1 align="center">⚙️ Advanced Number Theory Algorithms · Java</h1>
 
 <p align="center">
-  <em>A rigorous, high-performance Java library of 7 advanced number-theoretic algorithms —<br/>
+  <em>A rigorous, high-performance Java library of 6 advanced number-theoretic algorithms —<br/>
   from discrete logarithms to algebraic transforms, built for cryptographers and competitive programmers.</em>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Java-17%2B-purple?style=flat-square&logo=openjdk" />
   <img src="https://img.shields.io/badge/Build-Maven-teal?style=flat-square&logo=apachemaven" />
-  <img src="https://img.shields.io/badge/Algorithms-7-orange?style=flat-square" />
+  <img src="https://img.shields.io/badge/Algorithms-6-orange?style=flat-square" />
   <img src="https://img.shields.io/badge/Domain-Number%20Theory-coral?style=flat-square" />
   <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" />
   <img src="https://img.shields.io/badge/Author-Manu577228-blueviolet?style=flat-square&logo=github" />
@@ -22,7 +22,7 @@
 
 ## ∑ What Is This?
 
-A carefully curated Java library implementing **7 advanced Number Theory algorithms** — spanning cryptographic primitives, algebraic transforms, and modular arithmetic. Each algorithm lives in its own dedicated package under `org.bharadwaj.tT`, with clean, readable code and a unified `Main.java` entry point for demonstration.
+A carefully curated Java library implementing **6 advanced Number Theory algorithms** — spanning cryptographic primitives, algebraic transforms, and modular arithmetic. Each algorithm lives in its own dedicated package under `org.bharadwaj.tT`, with clean, readable code and a unified `Main.java` entry point for demonstration.
 
 Whether you're solving ICPC problems, building cryptographic systems, or diving deep into the mathematics of integers — this is your go-to reference.
 
@@ -43,7 +43,6 @@ Advanced-Number-Theory-Algorithms-Java/
                     └── tT/
                         ├── BabyStepGiantStepAlgorithm/
                         ├── BerlekampMasseyAlgorithm/
-                        ├── BinaryTrieAlgorithm/
                         ├── CipollasAlgorithm/
                         ├── FastWalshHadamardTransformAlgorithm/
                         ├── NumberTheoreticTransformAlgorithm/
@@ -76,17 +75,7 @@ Finds the **shortest Linear Feedback Shift Register (LFSR)** that generates a gi
 
 ---
 
-### 3. 🌲 Binary Trie Algorithm
-**Package:** `BinaryTrieAlgorithm`
-
-A **bitwise trie** (prefix tree) for integers — enabling ultra-fast XOR queries, maximum XOR pair finding, and bitwise range operations over sets of numbers.
-
-- **Use case:** XOR maximization problems, bitwise competitive programming, IP routing
-- **Complexity:** `O(log(max_val))` per insert / query
-
----
-
-### 4. 🔵 Cipolla's Algorithm
+### 3. 🔵 Cipolla's Algorithm
 **Package:** `CipollasAlgorithm`
 
 Computes **modular square roots**: finds `x` such that `x² ≡ n (mod p)` for a prime `p`.
@@ -97,7 +86,7 @@ Works in the extension field `𝔽p²` to handle cases where no solution exists 
 
 ---
 
-### 5. ⚡ Fast Walsh-Hadamard Transform (FWHT)
+### 4. ⚡ Fast Walsh-Hadamard Transform (FWHT)
 **Package:** `FastWalshHadamardTransformAlgorithm`
 
 Computes **AND / OR / XOR convolutions** in `O(n log n)` — the binary analog of the Fast Fourier Transform.
@@ -108,7 +97,7 @@ Transforms sequences for fast subset-sum convolution over boolean domains.
 
 ---
 
-### 6. 🔢 Number Theoretic Transform (NTT)
+### 5. 🔢 Number Theoretic Transform (NTT)
 **Package:** `NumberTheoreticTransformAlgorithm`
 
 A **modular FFT** — performs polynomial multiplication exactly under a prime modulus, with zero floating-point error.
@@ -119,7 +108,7 @@ Uses NTT-friendly primes (e.g., `998244353`) and primitive roots.
 
 ---
 
-### 7. 🌀 Tonelli-Shanks Algorithm
+### 6. 🌀 Tonelli-Shanks Algorithm
 **Package:** `TonelliShanksAlgorithm`
 
 Solves `x² ≡ n (mod p)` for **arbitrary odd primes** `p`, including cases where `p ≡ 1 (mod 4)` where simpler formulas fail.
@@ -135,12 +124,12 @@ The gold-standard general-purpose modular square root algorithm.
 ```
 Discrete Log              Modular Square Roots          Algebraic Transforms
 ────────────              ────────────────────          ────────────────────
-BabyStepGiantStep  ──►   Cipolla's Algorithm    ◄──►   NTT  (polynomial multiply)
+BabyStepGiantStep  ──►   Cipolla's Algorithm            NTT  (polynomial multiply)
                           TonelliShanks                  FWHT (XOR/AND/OR convolve)
 
-Sequence Analysis         Bitwise Structures
-─────────────────         ──────────────────
-BerlekampMassey    ──►   BinaryTrie (XOR max queries)
+Sequence Analysis
+─────────────────
+BerlekampMassey    ──►   minimal LFSR reconstruction
 ```
 
 ---
@@ -194,7 +183,7 @@ long r = TonelliShanks.sqrt(2, 113);
 
 // ── Fast Walsh-Hadamard Transform ─────────────────────────────
 // XOR convolution of [1,0,1] and [0,1,1]
-int[] result = FWHT.xorConvolve(new int[]{1,0,1}, new int[]{0,1,1});
+int[] result = FWHT.xorConvolve(new int[]{1, 0, 1}, new int[]{0, 1, 1});
 // → [1, 2, 0, 1]
 ```
 
