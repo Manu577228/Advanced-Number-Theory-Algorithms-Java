@@ -2,7 +2,7 @@
   <img src="https://avatars.githubusercontent.com/u/102406248?v=4" alt="Manu Bharadwaj" width="140" style="border-radius:50%;" />
 </p>
 
-<h1 align="center">⚙️ Advanced Number Theory Algorithms · Java</h1>
+<h1 align="center">⚙️ Advanced Number Theory Algorithms · Java !</h1>
 
 <p align="center">
   <em>A rigorous, high-performance Java library of 6 advanced number-theoretic algorithms —<br/>
